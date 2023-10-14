@@ -43,17 +43,25 @@ class DataAccess
         {
             foreach($items as $item)
             {                
-                if ($item['attributes'][$attribute] === $value)
+                if(is_numeric($value) && $value <= $item['attributes'][$attribute])
+                {
+                    array_push($matches, $item['attributes']['id']);
+                }
+                elseif ($item['attributes'][$attribute] == $value)
                 {
                     array_push($matches, $item['attributes']['id']);
                 }
             }
             if(count($matches) > 0)
-            {                
+            {
+                //echo "{$attribute} = {$value}\ntrue\n";
+                //echo "true\n";
                 return $matches;
             }
             else
             {
+                //echo "{$attribute} = {$value}\n";
+                //echo "false\n";
                 return false;
             }
         }

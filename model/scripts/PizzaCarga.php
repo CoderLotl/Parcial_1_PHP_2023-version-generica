@@ -1,16 +1,16 @@
 <?php
 
-if(isset($_REQUEST['create']) && isset($_REQUEST['params']))
+if(isset($_REQUEST['create']) && in_array($_REQUEST['create'], array_keys(ITEMS)) && isset($_REQUEST['params']))
 {
-    if(in_array($_REQUEST['create'], array_keys(ITEMS)))
+    if($_REQUEST['create'] === 'Pizzas')
     {
         $requestParamsKeys = array_keys($_REQUEST['params']);
         
         if( count(array_intersect(ITEMS[$_REQUEST['create']], $requestParamsKeys)) === count(ITEMS[$_REQUEST['create']]) )
         {
-            $item = new Pizza($_REQUEST['params']);            
+            $item = new Pizza($_REQUEST['params']);
     
-            if(ItemManager::SavePizza($item, $_REQUEST['create']))
+            if(ItemManager::SavePizza($item))
             {
                 echo "Success!";
                 return http_response_code(200);

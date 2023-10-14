@@ -42,6 +42,9 @@ class RequestsManager
             case 'consultaPizza':
                 require APP_ROOT . '/model/scripts/PizzaConsultar.php';
                 break;
+            case 'altaVenta':
+                require APP_ROOT . '/model/scripts/AltaVenta.php';
+                break;
             default:
                 return http_response_code(400);
         }

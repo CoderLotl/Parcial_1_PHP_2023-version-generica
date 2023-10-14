@@ -27,11 +27,11 @@ class ItemManager
         }
     }
 
-    public static function SavePizza(Pizza $item, string $itemType)
+    public static function SavePizza(Pizza $item)
     {
         $id = 0;
         $found = false;
-        $items = DataAccess::ReadFile($itemType);
+        $items = DataAccess::ReadFile("Pizzas");
         
         if(count($items) > 0)
         {
@@ -54,7 +54,7 @@ class ItemManager
         {
             array_push($items, $item);
         }
-        if(DataAccess::WriteFile($itemType, $items))
+        if(DataAccess::WriteFile("Pizzas", $items))
         {
             return true;
         }
@@ -64,13 +64,42 @@ class ItemManager
         }
     }
 
-    public static function SearchMultipleParams(Array $params)
+    public static function SaveVenta(Venta $item)
+    {
+        $id = 0;
+        $found = false;
+        $items = DataAccess::ReadFile("Ventas");
+        
+        if(count($items) > 0)
+        {
+            foreach($items as &$anItem)
+            {
+                $id = $anItem['attributes']['id'];
+            }
+        }        
+        
+        $item->attributes['id'] = $id+1;
+        if($found == false)
+        {
+            array_push($items, $item);
+        }
+        if(DataAccess::WriteFile("Ventas", $items))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static function SearchMultipleParams(Array $params, string $searchFor)
     {
         $matches = [];        
         
         foreach($params as $param => $value)
         {            
-            $matchResult = DataAccess::SearchForItem($_REQUEST['search'], $param, $value);
+            $matchResult = DataAccess::SearchForItem($searchFor, $param, $value);
             if($matchResult === false)
             {
                 return false;
