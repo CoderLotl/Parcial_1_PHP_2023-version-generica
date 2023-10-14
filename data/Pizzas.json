@@ -1,0 +1,29 @@
+[
+    {
+        "attributes": {
+            "cantidad": 7,
+            "precio": 11,
+            "sabor": "mozarella",
+            "tipo": "molde",
+            "id": 1
+        }
+    },
+    {
+        "attributes": {
+            "cantidad": 1,
+            "precio": 11,
+            "sabor": "mozarella",
+            "tipo": "piedra",
+            "id": 2
+        }
+    },
+    {
+        "attributes": {
+            "cantidad": 1,
+            "precio": 11,
+            "sabor": "queso",
+            "tipo": "piedra",
+            "id": 3
+        }
+    }
+]
