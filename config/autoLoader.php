@@ -6,7 +6,7 @@ spl_autoload_register(function ($className)
         
     $baseDir = APP_ROOT;
     
-    $subDirs = ['/model/classes', ''];
+    $subDirs = ['/model/classes', '', '/model/services'];
     
     foreach($subDirs as $subDir)
     {

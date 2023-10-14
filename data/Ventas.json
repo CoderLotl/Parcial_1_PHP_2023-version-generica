@@ -3,9 +3,9 @@
         "attributes": {
             "sabor": "mozarella",
             "tipo": "molde",
-            "cantidad": 5,
+            "cantidad": 1,
             "email": "test@asd.com",
-            "id": 4
+            "id": 1
         }
     }
 ]

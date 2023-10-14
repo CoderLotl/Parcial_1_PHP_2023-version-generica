@@ -2,7 +2,7 @@
 
 if(isset($_REQUEST['create']) && in_array($_REQUEST['create'], array_keys(ITEMS)) && isset($_REQUEST['params']))
 {
-    if($_REQUEST['create'] === 'Ventas' && $_REQUEST['params']['email'] !== '' && filter_var($_REQUEST['params']['email'], FILTER_VALIDATE_EMAIL))
+    if($_REQUEST['create'] === 'Ventas' && Extras::ValdiateMail($_REQUEST['params']['email']))
     {
         $requestParamsKeys = array_keys($_REQUEST['params']);
 
@@ -29,6 +29,14 @@ if(isset($_REQUEST['create']) && in_array($_REQUEST['create'], array_keys(ITEMS)
                 }
                 DataAccess::WriteFile('Pizzas', $pizzas);
                 ItemManager::SaveVenta($venta);
+                
+                $newParams = [  $_REQUEST['params']['tipo'],
+                                $_REQUEST['params']['sabor'],
+                                $_REQUEST['params']['email']
+                            ];
+                
+                Extras::UploadImage($newParams);
+                
                 echo 'Venta realizada.';
                 return http_response_code(200);                
             }
