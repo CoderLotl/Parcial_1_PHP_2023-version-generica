@@ -1,7 +1,7 @@
 [
     {
         "attributes": {
-            "cantidad": 18,
+            "cantidad": 13,
             "precio": 11,
             "sabor": "mozarella",
             "tipo": "molde",
@@ -10,7 +10,7 @@
     },
     {
         "attributes": {
-            "cantidad": 1,
+            "cantidad": 5,
             "precio": 11,
             "sabor": "mozarella",
             "tipo": "piedra",

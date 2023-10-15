@@ -16,7 +16,9 @@ if(isset($_REQUEST['create']) && in_array($_REQUEST['create'], array_keys(ITEMS)
 
             if(ItemManager::SearchMultipleParams($params, 'Pizzas'))
             {
-                $venta = new Venta($_REQUEST['params']);
+                $paramsVenta = $_REQUEST['params'];
+                $paramsVenta['date'] = date('Y-m-d-H-i');
+                $venta = new Venta($paramsVenta);
 
                 $pizzas = DataAccess::ReadFile('Pizzas');
                 foreach($pizzas as &$pizza)
@@ -59,5 +61,8 @@ if(isset($_REQUEST['create']) && in_array($_REQUEST['create'], array_keys(ITEMS)
         return http_response_code(400);
     }
 }
-echo 'error general';
-return http_response_code(400);
+else
+{
+    echo 'error general';
+    return http_response_code(400);
+}

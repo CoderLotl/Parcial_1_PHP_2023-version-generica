@@ -45,6 +45,9 @@ class RequestsManager
             case 'altaVenta':
                 require APP_ROOT . '/model/scripts/AltaVenta.php';
                 break;
+            case 'consultaVenta':
+                require APP_ROOT . '/model/scripts/ConsultasVentas.php';
+                break;
             default:
                 return http_response_code(400);
         }

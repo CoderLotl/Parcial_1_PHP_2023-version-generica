@@ -10,7 +10,7 @@ class Extras
     public static function UploadImage(array $params)
     {        
         $email = explode('@', $params[2]);
-        $url = IMAGES . '/' . $params[0] . '-' . $params[1] . '-' . $email[0] . '-' . date("d-m-Y-H-i-s") . '.jpg';
+        $url = IMAGES . '/' . $params[0] . '-' . $params[1] . '-' . $email[0] . '-' . date("Y-m-d-H-i") . '.jpg';
         if(!is_dir(IMAGES))
         {
             mkdir(IMAGES, 0777, true);
@@ -25,5 +25,10 @@ class Extras
             echo "upload aborted\n";
             return false;
         }
+    }
+
+    public static function CheckDate(string $date)
+    {
+        return DateTime::createFromFormat('Y-m-d', $date);
     }
 }

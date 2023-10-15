@@ -128,4 +128,14 @@ class ItemManager
 
         return false;
     }
+
+    public static function CountItems(string $type)
+    {
+        $items = DataAccess::ReadFile($type);
+        if($items !== false)
+        {
+            return count($items);
+        }
+        return false;
+    }
 }
