@@ -1,0 +1,381 @@
+{
+	"info": {
+		"_postman_id": "9708e77f-c9e1-4c9f-9290-9c17d49ed309",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26594780"
+	},
+	"item": [
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost?request=test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"query": [
+						{
+							"key": "request",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PizzaCarga",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost?request=altaPizza&create=Pizzas&params[cantidad]=1&params[precio]=11&params[sabor]=mozarella&params[tipo]=piedra",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"query": [
+						{
+							"key": "request",
+							"value": "altaPizza"
+						},
+						{
+							"key": "create",
+							"value": "Pizzas"
+						},
+						{
+							"key": "params[cantidad]",
+							"value": "1"
+						},
+						{
+							"key": "params[precio]",
+							"value": "11"
+						},
+						{
+							"key": "params[sabor]",
+							"value": "mozarella"
+						},
+						{
+							"key": "params[tipo]",
+							"value": "piedra"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PizzaCarga POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "altaPizza",
+							"type": "text"
+						},
+						{
+							"key": "create",
+							"value": "Pizzas",
+							"type": "text"
+						},
+						{
+							"key": "params[cantidad]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "params[precio]",
+							"value": "11",
+							"type": "text"
+						},
+						{
+							"key": "params[sabor]",
+							"value": "mozarella",
+							"type": "text"
+						},
+						{
+							"key": "params[tipo]",
+							"value": "piedra",
+							"type": "text"
+						},
+						{
+							"key": "params[email]",
+							"value": "aaaa@b.com",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Aris/Desktop/error.png"
+						}
+					]
+				},
+				"url": "http://localhost"
+			},
+			"response": []
+		},
+		{
+			"name": "PizzaConsulta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "consultaPizza",
+							"type": "text"
+						},
+						{
+							"key": "search",
+							"value": "Pizzas",
+							"type": "text"
+						},
+						{
+							"key": "params[sabor]",
+							"value": "queso",
+							"type": "text"
+						},
+						{
+							"key": "params[tipo]",
+							"value": "piedra",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"query": [
+						{
+							"key": "request",
+							"value": "consultaPizza",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AltaVenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "altaVenta",
+							"type": "text"
+						},
+						{
+							"key": "create",
+							"value": "Ventas",
+							"type": "text"
+						},
+						{
+							"key": "params[sabor]",
+							"value": "mozarella",
+							"type": "text"
+						},
+						{
+							"key": "params[tipo]",
+							"value": "piedra",
+							"type": "text"
+						},
+						{
+							"key": "params[cantidad]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "params[email]",
+							"value": "testa@asd.com",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Aris/Desktop/error.png"
+						}
+					]
+				},
+				"url": "http://localhost"
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultasVentas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "consultaVenta",
+							"type": "text"
+						},
+						{
+							"key": "busqueda",
+							"value": "ventas",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost"
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultasVentasFechas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "consultaVenta",
+							"type": "text"
+						},
+						{
+							"key": "busqueda",
+							"value": "fechas",
+							"type": "text"
+						},
+						{
+							"key": "fecha1",
+							"value": "2023-10-12",
+							"type": "text"
+						},
+						{
+							"key": "fecha2",
+							"value": "2023-10-15",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost"
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultasVentasUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "consultaVenta",
+							"type": "text"
+						},
+						{
+							"key": "busqueda",
+							"value": "usuario",
+							"type": "text"
+						},
+						{
+							"key": "usuario",
+							"value": "test@asd.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost"
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultasVentasSabor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "consultaVenta",
+							"type": "text"
+						},
+						{
+							"key": "busqueda",
+							"value": "sabor",
+							"type": "text"
+						},
+						{
+							"key": "sabor",
+							"value": "mozarella",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost"
+			},
+			"response": []
+		},
+		{
+			"name": "ModficarVenta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"request\": \"modificarVenta\",\r\n    \"id\": 1,\r\n    \"params\":\r\n    {\r\n            \"sabor\": \"mozarella\",\r\n            \"tipo\": \"piedra\",\r\n            \"cantidad\": 1,\r\n            \"email\": \"test@asd.com\"\r\n    },\r\n    \"newParams\":\r\n    {\r\n            \"sabor\": \"mozarella\",\r\n            \"tipo\": \"piedra\",\r\n            \"cantidad\": 5,\r\n            \"email\": \"test@asd.com\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost"
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarVenta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost?request=borrarVenta&id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"query": [
+						{
+							"key": "request",
+							"value": "borrarVenta"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
