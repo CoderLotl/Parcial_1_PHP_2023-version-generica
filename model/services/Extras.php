@@ -7,13 +7,22 @@ class Extras
         return ($email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL));
     }
 
-    public static function UploadImage(array $params)
+    public static function UploadImage(array $params, string $folderPath, string $type)
     {        
         $email = explode('@', $params[2]);
-        $url = IMAGES . '/' . $params[0] . '-' . $params[1] . '-' . $email[0] . '-' . date("Y-m-d-H-i") . '.jpg';
-        if(!is_dir(IMAGES))
+        $url = '';
+        if($type === 'Ventas')
         {
-            mkdir(IMAGES, 0777, true);
+            $url = $folderPath . '/' . $params[0] . '-' . $params[1] . '-' . $email[0] . '-' . date("Y-m-d-H-i") . '.jpg';
+        }
+        elseif($type === 'Pizzas')
+        {
+            $url = $folderPath . '/' . $params[0] . '-' . $params[1] . '-' . date("Y-m-d-H-i") . '.jpg';
+        }
+
+        if(!is_dir($folderPath))
+        {
+            mkdir($folderPath, 0777, true);
         }
         if(move_uploaded_file($_FILES['file']['tmp_name'], $url))
         {

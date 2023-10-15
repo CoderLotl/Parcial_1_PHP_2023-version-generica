@@ -37,7 +37,7 @@ if(isset($_REQUEST['create']) && in_array($_REQUEST['create'], array_keys(ITEMS)
                                 $_REQUEST['params']['email']
                             ];
                 
-                Extras::UploadImage($newParams);
+                Extras::UploadImage($newParams, SALES_IMAGES, "Ventas");
                 
                 echo 'Venta realizada.';
                 return http_response_code(200);                

@@ -34,7 +34,7 @@ class DataAccess
         }
     }
 
-    public static function SearchForItem(string $itemType, string $attribute, string $value)
+    public static function SearchForItem(string $itemType, string $attribute, string $value, bool $exactItem = false)
     {
         $matches = [];
         $items = DataAccess::ReadFile($itemType);
@@ -42,14 +42,30 @@ class DataAccess
         if($items !== false)
         {
             foreach($items as $item)
-            {                
-                if(is_numeric($value) && $value <= $item['attributes'][$attribute])
+            {
+                //echo "ITEM: " . var_dump($item) . "\n";
+                if(!$exactItem)
                 {
-                    array_push($matches, $item['attributes']['id']);
+                    if(is_numeric($value) && $value <= $item['attributes'][$attribute])
+                    {
+                        array_push($matches, $item['attributes']['id']);
+                    }
+                    elseif ($item['attributes'][$attribute] == $value)
+                    {
+                        array_push($matches, $item['attributes']['id']);
+                    }
                 }
-                elseif ($item['attributes'][$attribute] == $value)
+                else
                 {
-                    array_push($matches, $item['attributes']['id']);
+                    //echo "{$attribute} {$value} {$item['attributes'][$attribute]}\n";
+                    if(is_numeric($value) && $value == $item['attributes'][$attribute])
+                    {
+                        array_push($matches, $item['attributes']['id']);
+                    }
+                    elseif ($item['attributes'][$attribute] == $value)
+                    {
+                        array_push($matches, $item['attributes']['id']);
+                    }
                 }
             }
             if(count($matches) > 0)
@@ -65,6 +81,7 @@ class DataAccess
                 return false;
             }
         }
+        echo "error: item is false.\n";
         return false;
     }
 }

@@ -93,19 +93,19 @@ class ItemManager
         }
     }
 
-    public static function SearchMultipleParams(Array $params, string $searchFor)
+    public static function SearchMultipleParams(Array $params, string $searchFor, $exactItem = false)
     {
         $matches = [];        
         
         foreach($params as $param => $value)
         {            
-            $matchResult = DataAccess::SearchForItem($searchFor, $param, $value);
+            $matchResult = DataAccess::SearchForItem($searchFor, $param, $value, $exactItem);
             if($matchResult === false)
             {
                 return false;
             }
             array_push($matches, $matchResult);
-        }        
+        }                
         
         foreach ($matches as $param => $values)
         {
