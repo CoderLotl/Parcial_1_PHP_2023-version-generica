@@ -16,7 +16,7 @@ if(isset($_REQUEST['create']) && in_array($_REQUEST['create'], array_keys(ITEMS)
 
                 if($_SERVER['REQUEST_METHOD'] === 'POST')
                 {
-                    Extras::UploadImage( [ $_REQUEST['params']['tipo'], $_REQUEST['params']['sabor'] ], PIZZA_IMAGES, "Pizzas");
+                    Extras::UploadImage( [ $_REQUEST['params']['tipo'], $_REQUEST['params']['sabor'], $_REQUEST['params']['email'] ], PIZZA_IMAGES, "Pizzas");
                 }
 
                 return http_response_code(200);

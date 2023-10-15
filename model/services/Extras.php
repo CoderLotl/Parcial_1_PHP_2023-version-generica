@@ -36,6 +36,31 @@ class Extras
         }
     }
 
+    public static function RemoveImage(array $params, string $folderPath, string $destinationFolderPath)
+    {
+        $email = explode('@', $params[2]);
+        $url = $folderPath . '/' . $params[0] . '-' . $params[1] . '-' . $email[0] . '-' . $params[3] . '.jpg';
+        $newUrl = $destinationFolderPath . '/' . $params[0] . '-' . $params[1] . '-' . $email[0] . '-' . $params[3] . '.jpg';
+        if(file_exists($url))
+        {
+            echo "Archivo encontrado.\n";
+            if(!is_dir($destinationFolderPath))
+            {
+                mkdir($destinationFolderPath, 0777, true);
+            }
+            if(rename($url, $newUrl))
+            {
+                echo "File moved.\n";
+                return true;
+            }
+            else
+            {
+                echo "Error moving the file.";
+                return false;
+            }
+        }        
+    }
+
     public static function CheckDate(string $date)
     {
         return DateTime::createFromFormat('Y-m-d', $date);

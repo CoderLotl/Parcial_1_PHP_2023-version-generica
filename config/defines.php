@@ -6,3 +6,4 @@ define ('ITEMS', [  'Pizzas' => ['cantidad', 'precio', 'sabor', 'tipo'],
                     'Ventas' => ['email', 'sabor', 'tipo', 'cantidad'] ]);
 define('SALES_IMAGES', APP_ROOT . '/ImagenesDeLaVenta');
 define('PIZZA_IMAGES', APP_ROOT . '/ImagenesDePizzas');
+define('SALES_BACKUP_IMAGES', APP_ROOT . '/BACKUPVENTAS');

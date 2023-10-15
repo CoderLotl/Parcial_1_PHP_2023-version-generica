@@ -61,7 +61,7 @@ class RequestsManager
                 case 'consultaVenta':
                     require APP_ROOT . '/model/scripts/ConsultasVentas.php';
                     break;
-                case 'cargaPizza':
+                case 'altaPizza':
                     require APP_ROOT . '/model/scripts/PizzaCarga.php';
                     break;
                 default:
